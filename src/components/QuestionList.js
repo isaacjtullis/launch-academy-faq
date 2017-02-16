@@ -45,29 +45,3 @@ class QuestionList extends React.Component {
 };
 
 export default QuestionList;
-
-
-  //javascript i click box open text
-  /*
-  return (
-  <ul> {questionList}</ul>
-);
-  <ul>
-  <div clasName="test">
-  <div className="small-4 columns">
-  <i className="fa fa-plus-square" aria-hidden="true" key={this.props.id} onClick={onQuestionClick}></i>
-  <div className={this.props.id}>
-  {this.props.question}
-  {this.props.answer}
-</div>
-</div>
-</div>
-</ul>
-  $('.test').click(function(){
-    if ($('.script').is(':visible')) {
-      $('.script').hide();
-    } else {
-      $('.script').show();
-    }
-  })
-  */
