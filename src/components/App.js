@@ -2,21 +2,12 @@ import React from 'react';
 import QuestionList from './QuestionList.js';
 
 const App = props => {
-  let data = props.data.map(question => {
-    return(
-      <QuestionList
-        id={question.id}
-        question={question.question}
-        answer={question.answer}
-      />
-    );
-  });
-
-  return(
-    <ul>
-      {data}
-    </ul>
-  )
-};
-
+  debugger
+  return (
+    <div className="body">
+      <div className="header"><h1>We are here to help</h1></div>
+      <QuestionList questions={props.data}/>
+    </div>
+  );
+}
 export default App;

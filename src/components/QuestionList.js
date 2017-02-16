@@ -1,4 +1,5 @@
 import React from 'react';
+import Question from './Question.js';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -13,41 +14,34 @@ class QuestionList extends React.Component {
     if(id === this.state.questionClickedID) {
       questionID = null;
     }
-
     this.setState({questionClickedID: questionID});
-  }
+  };
 
-  render(){
+  render() {
+    let questionList = this.props.questions.map(question=>{
+      let selected;
+      if(question.id === this.state.questionClickedID){
+        selected = true;
+      }
 
-    let onQuestionClick = () =>
-    this.handleClick(this.props.id);
+      let onQuestionClick = () =>
+        this.handleClick(question.id);
 
-    return (
-      <ul>
-        <div clasName="test">
-          <div className="small-4 columns">
-            <i className="fa fa-plus-square" aria-hidden="true" key={this.props.id} onClick={onQuestionClick}></i>
-            <div className={this.props.id}>
-              {this.props.question}
-              {this.props.answer}
-            </div>
-          </div>
-        </div>
-      </ul>
-    );
-  }
+      return (
+        <Question
+          key={question.id}
+          question={question.question}
+          answer={question.answer}
+          selected={selected}
+          handleClick={onQuestionClick}
+        />
+      );
+    });
 
-  //javascript i click box open text
-  /*
-  $('.test').click(function(){
-    if ($('.script').is(':visible')) {
-      $('.script').hide();
-    } else {
-      $('.script').show();
+      return (
+        <ul> {questionList}</ul>
+      );
     }
-  })
-  */
-
 };
 
 export default QuestionList;
